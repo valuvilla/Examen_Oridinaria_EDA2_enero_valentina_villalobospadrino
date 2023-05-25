@@ -388,3 +388,9 @@ def existe_paso(grafo, origen, destino):
                 resultado = existe_paso(grafo, adyacente, destino)
             vadyacentes = vadyacentes.sig
     return resultado
+
+g= Grafo(False)
+
+Tareas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J','K','L','M']
+for i in range(len(Tareas)):
+    insertar_vertice(g, Tareas[i])
