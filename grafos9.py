@@ -440,6 +440,9 @@ insertar_arista(g,25,I,M)
 insertar_arista(g,15,M,FIN)
 
 
+
 # arbol de expansion minima
 print('Arbol de expansion minima')
+# FIN siempre es el ultimo nodo
+print(kruskal(g))
 print(prim(g))
