@@ -79,7 +79,7 @@ if __name__ == "__main__":
     mensaje_coficado = "0011111010111001100110111010"
     mensaje_decodificado = Arbol.decodificar_mensaje(mensaje_coficado, arbol_huffman)
     print(mensaje_decodificado)
-    # coficar mensaje
-    mensaje = "HAZTECONTODOSLOSPOKEMON"
+    # coficar mensaje "hazte con todos los pokemon"
+    mensaje = 
     mensaje_codificado2 = Arbol.codificar_mensaje(mensaje, arbol_huffman)
     print(mensaje_codificado2)
