@@ -76,6 +76,10 @@ if __name__ == "__main__":
 
     frecuencias = {"T":0.15, "O":0.15, "A":0.12, "E": 0.10, "H":0.09, "S": 0.07, "P": 0.07, "M": 0.07, "N": 0.06, "C": 0.06, "D":0.05, "Z":0.04, "K": 0.03, " ": 0.03}
     arbol_huffman = Arbol.construir_arbol_huffman(frecuencias)
-    mensaje_decoficado = "HAZTE CON TODOS LOS POKEMON"
-    mensaje_codificado = Arbol.codificar_mensaje(mensaje_decoficado, arbol_huffman)
-    print(mensaje_codificado)
+    mensaje_coficado = "0011111010111001100110111010"
+    mensaje_decodificado = Arbol.decodificar_mensaje(mensaje_coficado, arbol_huffman)
+    print(mensaje_decodificado)
+    # coficar mensaje
+    mensaje = "HAZTECONTODOSLOSPOKEMON"
+    mensaje_codificado2 = Arbol.codificar_mensaje(mensaje, arbol_huffman)
+    print(mensaje_codificado2)
