@@ -318,24 +318,9 @@ def prim(grafo):
                 adyac = adyac.sig
     return bosque
 
-def prim_max(grafo):
-    """Algoritmo de Prim para hallar el árbol de expansión máximo."""
-    bosque = []
-    aristas = Heap(tamanio(grafo) ** 2)
-    adyac = grafo.inicio.adyacentes.inicio
-    while(adyac is not None):
-        arribo_h(aristas, [grafo.inicio.info, adyac.destino], adyac.info)
-        adyac = adyac.sig
-    while(len(bosque) // 2 < tamanio(grafo) and not heap_vacio(aristas)):
-        dato = atencion_h(aristas)
-        if(len(bosque) == 0 or ((dato[1][0] not in bosque) ^ (dato[1][1] not in bosque))):
-            bosque += dato[1]
-            destino = buscar_vertice(grafo, dato[1][1])
-            adyac = destino.adyacentes.inicio
-            while(adyac is not None):
-                arribo_h(aristas, [destino.info, adyac.destino], -adyac.info)
-                adyac = adyac.sig
-    return bosque
+def prim_ultmo_nodo(g, nodo):
+    """Algoritmo de Prim para hallar el árbol de expansión mínimo, dado un nodo que es siempre el ultimo nodo del grafo."""
+    
 
 
 def kruskal(grafo):
