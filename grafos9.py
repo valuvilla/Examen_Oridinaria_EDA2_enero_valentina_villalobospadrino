@@ -398,6 +398,5 @@ for i in range(len(Tareas)):
 peso_arista=[20,5,40,10,5,10,20,25,35,25,15,5,25]
 
 
-
-print("Grafo:")
-barrido_vertices(g)
+# la duracion de las taresa es el peso de cada arista. Algunas tareas se debe reaizar antes que otras, los nodos no estan todos conectados entre sí.
+# peso toral = 100
