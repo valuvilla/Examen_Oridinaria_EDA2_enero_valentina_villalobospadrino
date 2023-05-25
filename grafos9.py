@@ -320,6 +320,8 @@ def prim(grafo):
 
 def prim_ultmo_nodo(g, nodo):
     """Algoritmo de Prim para hallar el árbol de expansión mínimo, dado un nodo que es siempre el ultimo nodo del grafo."""
+    bosque=[]
+    aristas=Heap(tamanio(g)**2)
     
 
 
