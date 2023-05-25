@@ -70,4 +70,11 @@ pokemones= [f'{random.choice(tipos)}-{random.randint(1000,9999)}' for _ in range
 # primera lusta tres ultimos digitos del nivel
 # segunda de sus tipos
 
-hash
+hash_por_nivel = HashTable(1000)
+hash_por_tipo = HashTable(6)
+
+for pokemon in pokemones:
+    tipo, nivel = pokemon.split('-')
+    nivel= nivel[-3:]
+    hash_por_nivel.insertar(int(nivel)%1000, pokemon)
+    hash_por_tipo.insertar(tipo.index(tipo), pokemon)
