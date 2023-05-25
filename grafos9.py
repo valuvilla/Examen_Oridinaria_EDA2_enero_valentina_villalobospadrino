@@ -421,4 +421,15 @@ M=buscar_vertice(g,'M')
 # J
 insertar_arista(g,5,B,C)
 insertar_arista(g,40,C,H)
-insertar_arista(g,)
+insertar_arista(g,20,G,H)
+
+insertar_arista(g,20,A,D)
+insertar_arista(g,10,D,E)
+insertar_arista(g,5,E,F)
+
+insertar_arista(g,35,I,K)
+insertar_arista(g,15,K,L)
+
+# arbol de expansion minima
+print('Arbol de expansion minima')
+print(prim(g))
