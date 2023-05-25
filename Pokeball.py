@@ -35,6 +35,12 @@ class ListaPokeball:
             new_node.next = current.next
             current.next = new_node
 
+    def mostrar(self):
+        current = self.head
+        while current:
+            print(current.data)
+            current = current.next
+
     def modificar(self, pokeball, caracteristica, valor):
         current = self.head
         while current and current.data.nombre != pokeball.nombre:
@@ -84,6 +90,28 @@ class TestPokeball(unittest.TestCase):
         self.assertEqual(str(self.pokeball2), "La pokeball pokeball2 pesa 200 gramos y cuesta 2000 pesos")
         self.assertEqual(str(self.pokeball3), "La pokeball pokeball3 pesa 300 gramos y cuesta 3000 pesos")
 
-    
+    def test_insertar_mostrar(self):
+        lista_pokeball = ListaPokeball()
+        lista_pokeball.insertar(self.pokeball1)
+        lista_pokeball.insertar(self.pokeball2)
+        lista_pokeball.insertar(self.pokeball3)
+        lista_pokeball.mostrar()
+        assert lista_pokeball.head.data.nombre == "pokeball1"
+        assert lista_pokeball.head.next.data.nombre == "pokeball2"
+        assert lista_pokeball.head.next.next.data.nombre == "pokeball3"
+
+
+    def test_modificar(self):
+        # modificar el precio de la pokeball1 a 5000
+        lista_pokeball = ListaPokeball()
+        lista_pokeball.insertar(self.pokeball1)
+        lista_pokeball.insertar(self.pokeball2)
+        lista_pokeball.insertar(self.pokeball3)
+        lista_pokeball.modificar(self.pokeball1, "precio", 5000)
+        #print(lista_pokeball.head.data.precio)
+        assert lista_pokeball.head.data.precio == 5000
+
+
+
 if __name__ == "__main__":
     unittest.main()
