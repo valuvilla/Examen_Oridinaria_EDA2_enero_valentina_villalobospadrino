@@ -32,4 +32,7 @@ def solve_n_pokeballs(n):
 
     return all_solutions
 
-
+print("n-PokéBolas\tSoluciones distintas\tTodas las soluciones\tUna solución")
+for n in range(1, 16):
+    num_solutions, num_all_solutions, random_solution = solve_n_pokeballs(n)
+    print(f"{n}\t\t{num_solutions}\t\t\t{num_all_solutions}\t\t\t\t{random_solution}")
