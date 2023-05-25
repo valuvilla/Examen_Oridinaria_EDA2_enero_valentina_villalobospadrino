@@ -397,6 +397,28 @@ for i in range(len(Tareas)):
 
 peso_arista=[20,5,40,10,5,10,20,25,35,25,15,5,25]
 
+A=buscar_vertice(g,'A')
+B=buscar_vertice(g,'B')
+C=buscar_vertice(g,'C')
+D=buscar_vertice(g,'D')
+E=buscar_vertice(g,'E')
+F=buscar_vertice(g,'F')
+G=buscar_vertice(g,'G')
+H=buscar_vertice(g,'H')
+I=buscar_vertice(g,'I')
+J=buscar_vertice(g,'J')
+K=buscar_vertice(g,'K')
+L=buscar_vertice(g,'L')
+M=buscar_vertice(g,'M')
+
 
 # la duracion de las taresa es el peso de cada arista. Algunas tareas se debe reaizar antes que otras, los nodos no estan todos conectados entre sí.
 # peso toral = 100
+# B-c-h-M
+# G-H
+#A-D-E-F
+# I-K-L
+# J
+insertar_arista(g,5,B,C)
+insertar_arista(g,40,C,H)
+insertar_arista(g,)
