@@ -420,7 +420,13 @@ M=buscar_vertice(g,'M')
 
 # I-K-L
 # J
-insertar_arista()
+insertar_arista(g,20,A,D)
+insertar_arista(g,20,A,E)
+insertar_arista(g,5,E,F)
+insertar_arista(g,10,D,F)
+
+insertar_arista(g,5,B,C)
+insertar_arista(g,35,C,H)
 
 # arbol de expansion minima
 print('Arbol de expansion minima')
