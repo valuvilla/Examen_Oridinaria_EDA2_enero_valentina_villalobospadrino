@@ -394,3 +394,10 @@ g= Grafo(False)
 Tareas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J','K','L','M']
 for i in range(len(Tareas)):
     insertar_vertice(g, Tareas[i])
+
+peso_arista=[20,5,40,10,5,10,20,25,35,25,15,5,25]
+
+
+
+print("Grafo:")
+barrido_vertices(g)
