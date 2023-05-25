@@ -322,7 +322,23 @@ def prim_ultmo_nodo(g, nodo):
     """Algoritmo de Prim para hallar el árbol de expansión mínimo, dado un nodo que es siempre el ultimo nodo del grafo."""
     bosque=[]
     aristas=Heap(tamanio(g)**2)
-    
+    adyacentes=nodo.adyacentes.inicio
+    while(adyacentes is not None):
+        arribo_h(aristas,[nodo.info,adyacentes.destino],adyacentes.info)
+        adyacentes=adyacentes.sig
+    while(len(bosque)//2<tamanio(g) and not heap_vacio(aristas)):
+        dato=atencion_h(aristas)
+        if(len(bosque)==0 or ((dato[1][0] not in bosque) ^ (dato[1][1] not in bosque))):
+            bosque+=dato[1]
+            destino=buscar_vertice(g,dato[1][1])
+            adyacentes=destino.adyacentes.inicio
+            while(adyacentes is not None):
+                arribo_h(aristas,[destino.info,adyacentes.destino],adyacentes.info)
+                adyacentes=adyacentes.sig
+    return bosque[::-1]
+
+
+
 
 
 def kruskal(grafo):
@@ -431,5 +447,6 @@ insertar_arista(g,15,M,FIN)
 # arbol de expansion minima
 print('Arbol de expansion minima')
 # FIN siempre es el ultimo nodo
-print(kruskal(g))
-print(prim(g))
+print('Prim con FIN como ultimo nodo')
+print(prim_ultmo_nodo(g,FIN))
+
