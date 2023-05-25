@@ -391,7 +391,7 @@ def existe_paso(grafo, origen, destino):
 
 g= Grafo(False)
 
-Tareas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J','K','L','M']
+Tareas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J','K','L','M',"FIN"]
 for i in range(len(Tareas)):
     insertar_vertice(g, Tareas[i])
 
@@ -410,6 +410,7 @@ J=buscar_vertice(g,'J')
 K=buscar_vertice(g,'K')
 L=buscar_vertice(g,'L')
 M=buscar_vertice(g,'M')
+FIN=buscar_vertice(g,'FIN')
 
 
 # la duracion de las taresa es el peso de cada arista. Algunas tareas se debe reaizar antes que otras, los nodos no estan todos conectados entre sí.
@@ -424,9 +425,20 @@ insertar_arista(g,20,A,D)
 insertar_arista(g,20,A,E)
 insertar_arista(g,5,E,F)
 insertar_arista(g,10,D,F)
+insertar_arista(g,10,F,M)
 
 insertar_arista(g,5,B,C)
 insertar_arista(g,35,C,H)
+insertar_arista(g,5,B,G)
+insertar_arista(g,15,G,H)
+insertar_arista(g,25,H,M)
+
+insertar_arista(g,35,I,K)
+insertar_arista(g,25,K,L)
+insertar_arista(g,25,I,M)
+
+insertar_arista(g,15,M,FIN)
+
 
 # arbol de expansion minima
 print('Arbol de expansion minima')
