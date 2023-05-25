@@ -1,56 +1,31 @@
 import random
 
-class Nodo:
-    def __init__(self, valor, fila):
-        self.valor = valor
-        self.fila = fila
-        self.siguiente = None
-
 def solve_n_pokeballs(n):
     solutions = []
     all_solutions = []
-    board = [None] * n
+    board = [-1] * n
 
     def is_safe(row, col):
-        nodo_actual = board[row]
-        while nodo_actual is not None:
+        for i in range(row):
             if (
-                nodo_actual.valor == col
-                or nodo_actual.valor - nodo_actual.fila == col - row
-                or nodo_actual.valor + nodo_actual.fila == col + row
+                board[i] == col
+                or board[i] - i == col - row
+                or board[i] + i == col + row
             ):
                 return False
-            nodo_actual = nodo_actual.siguiente
         return True
 
     def backtrack(row):
         if row == n:
-            solution = []
-            nodo_actual = board[0]
-            while nodo_actual is not None:
-                solution.append(nodo_actual.valor)
-                nodo_actual = nodo_actual.siguiente
+            solution = board.copy()
             solutions.append(solution)
             all_solutions.append(solution)
         else:
             for col in range(n):
                 if is_safe(row, col):
-                    nodo = Nodo(col, row)
-                    if board[row] is None:
-                        board[row] = nodo
-                    else:
-                        nodo_actual = board[row]
-                        while nodo_actual.siguiente is not None:
-                            nodo_actual = nodo_actual.siguiente
-                        nodo_actual.siguiente = nodo
+                    board[row] = col
                     backtrack(row + 1)
-                    if board[row] == nodo:
-                        board[row] = None
-                    else:
-                        nodo_actual = board[row]
-                        while nodo_actual.siguiente != nodo:
-                            nodo_actual = nodo_actual.siguiente
-                        nodo_actual.siguiente = None
+                    board[row] = -1
 
     backtrack(0)
 
