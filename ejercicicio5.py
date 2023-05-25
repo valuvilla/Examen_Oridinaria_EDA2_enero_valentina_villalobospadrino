@@ -19,14 +19,14 @@ class ListaEnlazada:
 
     def contador_por_dic(self, dic_prev, dic):
         contador = 0
-        a = [[4,6], [6,8], [7,9], [4,8], [3,9,0], [], [1,7,0], [2,6], [1,3], [2,4]]
+        a = [[4, 6], [6, 8], [7, 9], [4, 8], [3, 9, 0], [], [1, 7, 0], [2, 6], [1, 3], [2, 4]]
         nodo_actual = self.cabeza
         while nodo_actual is not None:
-            indice_lista = nodo_actual.valor
-            for indice in indice_lista:
-                for k in a[indice]:
-                    dic[k] += dic_prev[nodo_actual.valor]
-                    contador += dic_prev[nodo_actual.valor]
+            i = nodo_actual.valor
+            for j in range(len(a[i])):
+                for k in range(len(a[a[i][j]])):
+                    dic[a[a[i][j]][k]] += dic_prev[i]
+                    contador += dic_prev[i]
             nodo_actual = nodo_actual.siguiente
         return contador, dic
 
@@ -40,18 +40,27 @@ class ListaEnlazada:
                 cont, dicp = self.contador_por_dic(dic_prevpar, dicp)
                 print("{}:".format(i+2), cont)
                 # print(dicp, "\n") #Descomentar para ver los diccionarios intermedios pares
+                self.cabeza = None
+                self.fin = None
+                for key, value in dicp.items():
+                    if value > 0:
+                        self.agregar(key)
                 dic_prevpar = dicp
             else:
                 dici = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
                 cont, dici = self.contador_por_dic(dic_previmpar, dici)
                 print("{}:".format(i+2), cont)
                 # print(dici, "\n") #Descomentar para ver los diccionarios intermedios impares
+                self.cabeza = None
+                self.fin = None
+                for key, value in dici.items():
+                    if value > 0:
+                        self.agregar(key)
                 dic_previmpar = dici
         return cont
 
-# Crear una instancia de ListaEnlazada y agregar el primer nivel del árbol
-lista = ListaEnlazada()
-lista.agregar([0])
-
 print("Solución para el problema de los caballos:")
+lista = ListaEnlazada()
+lista.agregar(0)
 lista.n_dic(32)
+
